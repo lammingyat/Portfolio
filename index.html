@@ -1,20 +1,59 @@
 <!DOCTYPE html>
-<!-- saved from url=(0021)https://vitochan.com/ -->
 <html lang="en">
-    
  <head>
-    <!--<link rel="icon" href="https://vitochan.com/favicon.ico">//Set Up icon of window-->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Nick Lam</title>
-    <!--<script defer="defer" src="./Vito Chan_files/main.7d79644d.js.下載"></script>-->
-    <script>
+    <script type = "text/javascript">
+    var x = 0;
+    var timerid;
+    function changeImage(projectname)
+    {
+        document.getElementById(projectname).src = "picture/"+projectname+[x]+".jpg";
+        if(x >=3)
+            x = 0;
+        else x++;
+    }
+    
+    function startTimer(projectname) {     
+            timerid = setInterval(function(){ changeImage(projectname);}, 2000,);
+          }
 
-    </script>
-    <link href="./Vito Chan_files/main.aef66bb1.css" rel="stylesheet">
+    function stopTimer()
+    {
+        clearInterval(timerid);
+    }
+    
+     </script>
+    <!-- <link href="./Vito Chan_files/main.aef66bb1.css" rel="stylesheet">-->
     <style>
+        a {        
+            color: white;
+            text-decoration: none;  
+        }
+
+        a:visited
+        {
+            color: white;
+            text-decoration: none;   
+        }
+
+        a:hover
+        {
+            color: aqua; 
+        }
+
+        ul {
+            list-style-type: none;
+            }
+
         html{
-            scroll-behavior: smooth;
+            scroll-behavior: smooth;    
+        }
+
+        body
+        {
+            margin: 0;
         }
 
         .category
@@ -28,8 +67,7 @@
         .category:hover
             {
                 transform: scale(1.1);
-                font-weight: bold;
-                color: aqua;             
+                font-weight: bold;         
             }      
 
 
@@ -40,7 +78,8 @@
             padding-left: 20px;
             padding-right: 20px;
             height:200px;
-            transition-duration: 300ms;        
+            transition-duration: 300ms;
+            border-radius:50%;
         }
 
         .photo:hover
@@ -61,7 +100,6 @@
 
         .content
         {
-            height: 100%;
             width:100%;
             color: white;
         }
@@ -78,11 +116,14 @@
 
         .title
         {
-            padding: 10px;
+            padding: 5px;
             font-size: xx-large;
             font-weight: bold;
-            border-bottom-width: 4px; 
+            border-bottom-width: 1px; 
             border-bottom-color: gray;
+            text-decoration: underline;
+            margin: 0;
+            text-align: center;
         }
 
         .experience
@@ -105,12 +146,14 @@
             gap: 10px;
             padding-left:20px;
             padding-right:20px;
+            
         }
 
         .projectpicture
         {
             border-radius: 6px;
-            transition-duration: 300ms;
+            transition-duration: 300ms;          
+            width: 300px;
         }
 
         .projectpicture:hover
@@ -163,10 +206,10 @@
 </head>
     <body> 
         <!--Start of Category-->
-                <div style="display: flex; align-items: center; justify-content: center; height: 10%; width:100%; position: fixed; background-color: black;">
+                <div style="display: flex; align-items: center; justify-content: center; height: 10%; width:100%; position: fixed; background-color: rgba(128, 120, 120, 0.979);">
                     <ul style="display:flex;">
                     <li class="category">
-                        <a href="#introduction">Home</a>
+                        <a href="#introduction">Introduction</a>
                     </li>
                     <li class="category">
                         <a href="#experiences">Experiences</a>
@@ -184,15 +227,15 @@
                 </div>
                 <!--End of Category-->
                 <!--Start of Introduction-->
-                <div id="introduction" class="content"  style="height: 350px; background-color: rgb(10, 10, 10);" >
-                    <div style="width: max-content; display: flex; margin: auto; align-items:center; height: 100%;">
+                <div id="introduction" class="content"  style="height:100%; background-color: rgb(10, 10, 10);" >
+                    <div style="width: max-content; display: flex; margin: auto; padding: 10px; align-items:end; height: 270px;">
                         <div style="display: flex;">
-                            <img src="picture/photo.jpg" alt="Photo" class="photo"  >
+                            <img src="picture/photo.jpg" alt="Photo" class="photo" >
                         </div>               
                         <div>
-                            <h2 style="font-weight: bold; font-size:xx-large;" >Hello, I'm Nick Lam.</h2>
-                            <p style="max-width:28em;">I am a computing mathematics graduate with 9 years of experience as a programmer, specializing in C# and SQL, in which I have attained a high level of fluency.</p>
-                            <div class="flex">
+                            <h2  class="title" >Introduction</h2>
+                            <p style="max-width:28em;">Hello, I'm Nick Lam. I am a computing mathematics graduate with 9 years of experience as a programmer, specializing in C# and SQL, in which I have attained a high level of fluency.</p>
+                            <div style="display: flex;">
                                 <div class="icon">            
                                     <a href="https://www.linkedin.com/in/lammingyat/" target="_blank">
                                         <img src="picture/linkin.png" height="35px" width="35px"/>
@@ -239,21 +282,21 @@
                 </div>
                 <!--End of Experiences-->
                 <!--Start of Projects-->
-                <div id="projects" class="content" style=" background-color: rgb(30, 30, 30);" >
+                <div id="projects" class="content" style=" background-color: rgb(30, 30, 30);  " >
                     <div class="content2">
                         <p class="title">Projects</p>
-                        <br/>
-                        <div class="projectgrid" >
+                        <div class="projectgrid"  >
                             <a href="http://www.jumpingym.com" target="_blank">
-                                <div class="projectpicture">
-                                <img src="picture/jumpingym.jpg" style="border-radius: 6px;">
-                                <div class="projecttext" >
-                                    <button>Offical website of <br>Jumpingym U.S.A Limited</button>
-                                </div>
+                                <div class="projectpicture"   >
+                                 <img id="jumpingym" src="picture/jumpingym0.jpg" onmouseover="startTimer('jumpingym');" onmouseout ="stopTimer();" style="border-radius: 6px; height:100%; width: 100%; ">
+                                   <div class="projecttext" > 
+                                    <p style="text-align: center; margin: 0;"> Offical website of <br>Jumpingym U.S.A Limited</p>
+                                    </div>
                                 </div>
                             </a>
-                            </div>
-                        </div>
+                            
+                        </div>    
+                    </div>    
                 </div>
                 <!--End of Projects-->
                  <!--Start of Skills-->
@@ -297,73 +340,73 @@
                                 </div>
                                 <p>PHP</p>
                             </div>
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/sql.png" >
                                 </div>
                                 <p>SQL</p>
                             </div> 
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/mysql.png" >
                                 </div>
                                 <p>MySQL</p>
                             </div>
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/xml.png" >
                                 </div>
                                 <p>XML</p>
                             </div>
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/json.png" >
                                 </div>
                                 <p>JSON</p>
                             </div>
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/crystalreport.png" >
                                 </div>
                                 <p>Crystal Report</p>
                             </div>    
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/actionscript.png" >
                                 </div>
                                 <p>ActionScript</p>
                             </div>
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/restapi.png" >
                                 </div>
                                 <p>Rest API</p>
                             </div>
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/sap.png" >
                                 </div>
                                 <p>SAP</p>
                             </div>
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/postman.png" >
                                 </div>
                                 <p>Postman</p>
                             </div>
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/git.png" >
                                 </div>
                                 <p>Git</p>
                             </div>
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/msoffice.png" >
                                 </div>
                                 <p>MS Office</p>
                             </div>
-                            <div class="hover:scale-105 duration-500 py-4 place-self-center">
+                            <div class="skillpicture">
                                 <div class="skillicon">
                                     <img src="picture/photoshop.png" >
                                 </div>
