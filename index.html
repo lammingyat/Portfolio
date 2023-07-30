@@ -24,7 +24,15 @@
     {
         clearInterval(ChangeImageTimerId);
     }
-    
+
+   
+    document.addEventListener("mousemove",(e)=>
+    {
+        var cursor = document.getElementById("cursor");
+        cursor.style.left = e.clientX-5 +"px";
+        cursor.style.top = e.clientY-5+"px";
+    }
+    )
      </script>
     <!-- <link href="./Vito Chan_files/main.aef66bb1.css" rel="stylesheet">-->
     <style>
@@ -127,6 +135,19 @@
             text-align: center;
         }
 
+        .introductionword
+        {
+            padding: 10px;      
+            border-radius: 6px;
+            margin: 5px;
+            transition-duration: 300ms;
+        }
+
+        .introductionword:hover
+        {
+            background-color: rgb(97, 35, 83);   
+        }
+
         .experience
         {
             padding: 10px;      
@@ -159,7 +180,7 @@
 
         .projectreview:hover
         {
-            background-color: rgb(35, 94, 97);    
+            background-color: rgb(131, 0, 44);    
         }
 
         .projectpicture
@@ -208,11 +229,48 @@
             justify-content: center;
         }
 
+        .cursor
+        {
+            position: fixed;
+            z-index: 999;
+            background:#2696e8;
+            width:10px;
+            height: 10px;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: color 5s infinite;
+        }
+
+        @keyframes colors{
+            0%
+            {
+                filter: hue-rotate(0deg);
+            }
+            100%
+            {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        .cursor::before
+        {
+            content: '';
+            position: fixed;
+            background: #2696e8;
+            width: 25px;
+            height: 25px;
+            opacity: 0.5;
+            transform: translate(-30%,-30%);
+            border-radius: 50%;
+        }
+
     </style>
     <!--<style type="text/css">.resize-observer[data-v-8859cc6c]{position:absolute;top:0;left:0;z-index:-1;width:100%;height:100%;border:none;background-color:transparent;pointer-events:none;display:block;overflow:hidden;opacity:0}.resize-observer[data-v-8859cc6c] object{display:block;position:absolute;top:0;left:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1}</style><style type="text/css">x-vue-echarts{display:block;width:100%;height:100%}</style>   -->
 
 </head>
     <body>
+        <div id="cursor" class="cursor"></div>
+
         <!--Start of Category-->
                 <div style="display: flex; align-items: center; justify-content: center; height: 10%; width:100%; position: fixed; background-color: rgba(128, 120, 120, 0.979);">
                     <ul style="display:flex;">
@@ -236,13 +294,13 @@
                 <!--End of Category-->
                 <!--Start of Introduction-->
                 <div id="introduction" class="content"  style="height:100%; background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(20, 20, 20));" >
-                    <div style="width: max-content; display: flex; margin: auto; padding: 10px; align-items:end; height: 270px;">
+                    <div style="width: max-content; display: flex; margin: auto; padding: 10px; align-items:end; height: 290px;">
                         <div style="display: flex;">
                             <img id="photo"  src="picture/photo.jpg" alt="Photo" class="photo" >
                         </div>               
-                        <div>
+                        <div class="introductionword">
                             <h2  class="title" >Introduction</h2>
-                            <p style="max-width:28em;">Hello, I'm Nick Lam. I am a computing mathematics graduate with 9 years of experience as a programmer, specializing in C# and SQL, in which I have attained a high level of fluency.</p>
+                            <p style="max-width:28em;">Hello, I'm Nick Lam. I am a computing mathematics graduate with 9 years of experience as a programmer, specializing in <font color="Chartreuse"> <strong">C#</strong></font> and <font color="Chartreuse"><strong">SQL</strong></font>, in which I have attained a high level of fluency.</p>
                             <div style="display: flex;">
                                 <div class="icon">            
                                     <a href="https://www.linkedin.com/in/lammingyat/" target="_blank">
@@ -269,18 +327,18 @@
                     <div class="content2">
                         <p class="title" >Experiences</p>
                         <div class="experience">
-                            <p>Role: Programmer</p>
+                            <b><p>Role: Programmer</p>
                             <p>Company Name: Portfolio Home</p>
                             <p>Date: 8/2022 - 11/2022</p>
-                            <p>Location: UK</p>                       
+                            <p>Location: UK</p></b>                       
                             <p>‧Developed a logistic WinForm application that integrated with multiple selling platforms using APIs, JSON, and the SAP system.<br>
                             ‧Utilized Git for version control and code merging.</p>
                         </div>
-                    <div class="experience">
-                            <p>Role: Programmer</p>
+                        <div class="experience">
+                        <b><p>Role: Programmer</p>
                             <p>Company Name: Jumpin Gym USA Limited</p>
                             <p>Date: 6/2008 - 1/2012 and 8/2013 - 9/2013</p>
-                            <p>Location: Hong Kong</p>                       
+                            <p>Location: Hong Kong</p></b>                
                             <p>‧Developed various software projects, including the time card system, company website, logistics system, backup analysis system, ticket purchasing system, and SAP logistics system.<br>
                                 ‧Designed and implemented programs to enhance data transfer and management efficiency.<br>
                                 ‧Developed a flash game and ticket purchasing system, contributing to company profits.<br>
